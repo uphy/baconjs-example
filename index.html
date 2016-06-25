@@ -6,9 +6,17 @@
         <script src="http://cdnjs.cloudflare.com/ajax/libs/bacon.js/0.7.73/Bacon.min.js"></script>        
     </head>
     <body>
+        <input id="number" type="text"></input>
+        <input id="add" type="button" value="Add"></input>
+        <span id="counter"></span>
         <script>
-         var up = $("#up").asEventStream("click");
-         console.log(up);
+         var add = $("#add").asEventStream("click");
+         var counter = add.map(function(){
+             return parseInt($("#number").val();
+         }).scan(0, function(x,y){
+             return x+y;
+         });
+         counter.assign($("#counter"), "text");
         </script>
     </body>
 </html>
